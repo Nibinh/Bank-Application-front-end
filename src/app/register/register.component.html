@@ -1,0 +1,58 @@
+<app-header></app-header>
+
+<div class="container">
+
+    <h1 class="text-center hedng mt-3 font3">Register Form</h1>
+
+    <div class="row">
+        <div class="col-md-5 mt-5 text-center">
+            <img class="mt-5" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-4-CwrkMC48bQgn856vfiJq4GJrdKQjTzEg&usqp=CAU" alt="">
+        </div>
+        <div class="col-md-7">
+            <form (ngSubmit)="register()" [formGroup]="registerForm" class="border border-3 border-dark  p-5 mt-5 ">
+
+                <div class="form-floating mb-3 ">
+                    <input name="uname" formControlName="uname" type="text" class="form-control" id="floatingInput" placeholder="Account Number">
+                    <label for="floatingInput">Username</label>
+                  </div>
+                   <!-- Invalid uname -->
+
+              <div *ngIf="this.registerForm.get('uname')?.errors&&this.registerForm.get('uname')?.touched"
+              class="text-danger mb-3">Invalid Username</div>
+
+        
+            <div class="form-floating mb-3 ">
+                <input name="acno" formControlName="acno" type="text" class="form-control" id="floatingInput" placeholder="Account Number">
+                <label for="floatingInput">Account Number</label>
+              </div>
+              <!-- Invalid acno -->
+
+              <div *ngIf="this.registerForm.get('acno')?.errors&&this.registerForm.get('acno')?.touched"
+               class="text-danger mb-3">Invalid Account Number</div>
+
+              <div class="form-floating">
+                <input name="pswd" formControlName="pswd" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                <label for="floatingPassword">Password</label>
+              </div>
+
+              <!-- Invalid pswd -->
+
+              <div *ngIf="this.registerForm.get('pswd')?.errors&&this.registerForm.get('pswd')?.touched" 
+              class="text-danger mt-3">Password Invalid</div>
+
+        <div class="mt-4 text-center">
+            <button  type="submit" class="btn btn-primary">Register</button><br><br>
+            <!-- <span>
+                New User? Click here to <a routerLink="/">register</a>
+            </span> -->
+            
+        </div>
+        </form></div>
+       
+
+     
+                   
+    
+
+
+</div>

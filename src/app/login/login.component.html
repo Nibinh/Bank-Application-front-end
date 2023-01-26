@@ -1,0 +1,57 @@
+
+<app-header></app-header>
+    
+      
+          <div class="container">
+                <div class="row" >
+                    <!-- <div class="col-md-1 p-5"></div> -->
+                    <div class="col-md-5 text-center mt-5">
+                        <img class=" mt-5" height="335px" src="https://img.freepik.com/premium-vector/bank-building-money-bank-financing-money-exchange-financial-services-atm-giving-out-money_625536-194.jpg?w=2000" alt="">
+                        <!-- <img class="mt-5" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-4-CwrkMC48bQgn856vfiJq4GJrdKQjTzEg&usqp=CAU"  height="300px" alt=""> -->
+                    </div>
+                   
+                    <div class="col-md-7 mt-5 mb-5 ">
+        
+                     
+                            <form (ngSubmit)="login()" [formGroup]="loginForm" class="border border-3 p-5 mt-5 " >
+            
+                                <div class="form-floating mb-3 ">
+                                    <input name="acno" formControlName="acno" type="text" class="form-control" id="floatingInput" placeholder="Account Number">
+                                    <label for="floatingInput">Account Number</label>
+                                  </div>
+                                  <!-- Invalid acno -->
+            
+                                  <div *ngIf="this.loginForm.get('acno')?.errors&&this.loginForm.get('acno')?.touched"
+                                   class="text-danger mb-3">Invalid Account Number</div>
+            
+                                  <div class="form-floating">
+                                    <input name="pswd" formControlName="pswd" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                                    <label for="floatingPassword">Password</label>
+                                  </div>
+            
+                                  <!-- Invalid pswd -->
+                                  <div class="text-danger">{{errorMsg}}</div>
+            
+                                  <div *ngIf="this.loginForm.get('pswd')?.errors&&this.loginForm.get('pswd')?.touched" 
+                                  class="text-danger mt-3">Password Invalid</div>
+            
+                            <div class="mt-4 text-center">
+                                <button  type="submit" class="btn btn-primary">Login
+                                    <span *ngIf="successMsg" class="spinner-grow text-secondary" role="status">
+                                        <span class="visually-hidden">Loading...</span>
+                                      </span>
+                                </button>
+                                  <br><br>
+                                <span>
+                                    New User? Click here to <a routerLink="/register">register</a>
+                                </span>
+                                
+                            </div>
+                            </form>
+                       
+                    </div>
+                </div>
+          </div>
+    
+
+      
